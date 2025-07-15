@@ -1,0 +1,32 @@
+[
+  {
+    "nombre": "Ingeniería en ITIN",
+    "facultad": "Facultad de Ingeniería",
+    "descripcion": "Formación en desarrollo de software, sistemas, aquitectura tecnologica y tecnologías web.",
+    "imagen": "https://via.placeholder.com/300x150?text=Software"
+  },
+  {
+    "nombre": "Ingeniería en Software",
+    "facultad": "Facultad de Ingeniería",
+    "descripcion": "Formación en desarrollo de software, sistemas y tecnologías web.",
+    "imagen": "https://via.placeholder.com/300x150?text=Software"
+  },
+  {
+    "nombre": "Ingeniería Mecatrónica",
+    "facultad": "Facultad de Ingeniería Mecánica",
+    "descripcion": "Integración de sistemas mecánicos, eléctricos y de control.",
+    "imagen": "https://via.placeholder.com/300x150?text=Mecatrónica"
+  },
+  {
+    "nombre": "Biotecnología",
+    "facultad": "Facultad de Ciencias",
+    "descripcion": "Aplicación de tecnología en procesos biológicos.",
+    "imagen": "https://via.placeholder.com/300x150?text=Biotecnología"
+  },
+  {
+    "nombre": "Ingeniería Petroquímica",
+    "facultad": "Facultad de Energía",
+    "descripcion": "Procesamiento y análisis de productos petroquímicos.",
+    "imagen": "https://via.placeholder.com/300x150?text=Petroquímica"
+  }
+]
