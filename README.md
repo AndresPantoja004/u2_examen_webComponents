@@ -1,124 +1,82 @@
-# 📘 <espe-search-input> – Componente Web
+# `<career-card>` Web Component
 
-Componente Web reutilizable desarrollado con LitElement que permite realizar búsquedas con sugerencias en tiempo real, con personalización visual, accesibilidad, eventos personalizados e integración con identidad institucional de la **ESPE**.
-
-Autor: Andrés Pantoja
----
-
-## 🚀 Características
-
-- 🔍 Input de búsqueda con sugerencias filtradas en vivo.
-- 🎨 Personalización de tema (color del borde) y placeholder.
-- ⏳ Estado `loading` con spinner.
-- 🎯 Eventos personalizados para integración avanzada (`sugerencia-seleccionada`, `buscar-enter`).
-- ✅ Accesibilidad (`aria-label`, `tabindex`, `role="search"`).
-- 📱 Responsive, accesible y fácil de integrar.
+El componente `<career-card>` es un Web Component desarrollado con [LitElement](https://lit.dev/) que muestra información detallada sobre una carrera universitaria (nombre, facultad, descripción e imagen). Está diseñado para integrarse con otros componentes, como `<career-selector>`, y actualiza dinámicamente su contenido según la selección del usuario.
 
 ---
 
-## 🧩 Uso básico
+## 🧩 Funcionalidad
+
+- Muestra una tarjeta con los datos de una carrera.
+- Aplica un **tema visual** personalizado según el **último dígito de la cédula** proporcionado.
+- Puede integrarse fácilmente con el componente `<career-selector>` que emite el evento `career-selected`.
+
+---
+
+## 📦 Propiedades
+
+| Propiedad               | Tipo    | Descripción                                                                 |
+|------------------------|---------|-----------------------------------------------------------------------------|
+| `carrera`              | `Object`| Objeto que contiene los datos de la carrera a mostrar.                     |
+| `cedula-ultimo-digito` | `Number`| Último dígito de la cédula. Se usa para determinar el tema visual aplicado.|
+
+---
+
+## 🎨 Temas por cédula
+
+El tema de la tarjeta varía automáticamente según el último dígito de cédula:
+
+| Dígito | Tema   | Descripción                      |
+|--------|--------|----------------------------------|
+| 0–1    | Azul   | Colores institucionales          |
+| 2–3    | Verde  | Naturaleza, agronomía            |
+| 4–5    | Rojo   | Energía, mecatrónica             |
+| 6–7    | Gris   | Tecnología, software             |
+| 8–9    | Naranja| Innovación, emprendimiento       |
+
+---
+
+## 🚀 Uso
+
+### 1. Importar el componente
+
+```ts
+import './components/career-card.ts';
+
+O en HTML directamente (si usas Vite o Webpack con ES Modules):
+```
 
 ```html
-<espe-search-input></espe-search-input>
+<script type="module" src="/src/components/career-card.ts"></script>
 ```
 
-Por defecto:
-- Color institucional `#003C71`.
-- Placeholder: `Buscar...`.
-- Ícono de lupa.
-- Sin sugerencias iniciales.
-
----
-
-## 🎛️ Atributos disponibles
-
-| Atributo       | Tipo       | Descripción                                                       |
-|----------------|------------|-------------------------------------------------------------------|
-| `suggestions`  | `string[]` | Lista de sugerencias. Se pasa desde JavaScript.                  |
-| `theme`        | `string`   | Color HEX para personalizar el borde del input.                  |
-| `disabled`     | `boolean`  | Desactiva el input.                                              |
-| `loading`      | `boolean`  | Muestra ícono de carga (spinner).                               |
-| `placeholder`  | `string`   | Texto del placeholder (ayuda visual en el input).                |
-
----
-
-## 📡 Eventos personalizados
-
-| Evento                   | Descripción                                                                 |
-|--------------------------|-----------------------------------------------------------------------------|
-| `sugerencia-seleccionada` | Se emite al hacer clic en una sugerencia. Devuelve `{ value }`.             |
-| `buscar-enter`            | Se emite al presionar **Enter**. Devuelve `{ value }`.                      |
-
-### Ejemplo:
-
-```js
-const input = document.querySelector('espe-search-input');
-
-input.suggestions = ['Investigación', 'Computación', 'Ingeniería'];
-
-input.addEventListener('sugerencia-seleccionada', e => {
-  console.log('Seleccionado:', e.detail.value);
-});
-
-input.addEventListener('buscar-enter', e => {
-  console.log('Buscar:', e.detail.value);
-});
+## 2. Incluir en HTML
+```html
+<career-card cedula-ultimo-digito="3"></career-card>
 ```
 
----
-
-## 🧪 Ejemplos visuales
-
-Las siguientes imágenes muestran el componente en diferentes usos:
-
-| Vista                              | Imagen                                 |
-|------------------------------------|----------------------------------------|
-| 🔹 Por defecto                     | `docs/1-default.png`                   |
-| 🎨 Tema personalizado (`#006B53`) | `docs/2-theme-custom.png`              |
-| ✏️ Placeholder modificado         | `docs/3-placeholder.png`               |
-| 🧠 Con sugerencias                | `docs/4-suggestions.png`               |
-| ✅ Resultado de búsqueda          | `docs/5-result.png`                    |
-
-
-### Componente por defecto
-
-![Default](docs/default.png)
-
-### 2. Tema personalizado
-![Borde Cafe](docs/theme-custom.png)
-
-### 3. Placeholder modificado
-![Placeholder](docs/placeholder.png)
-
-### 4. Uso con sugerencias
-![Sugerencias](docs/suggestions.png)
-
-### 5. Resultado de búsqueda
-![Resultado](docs/result.png)
-
-
----
-
-## 📁 Estructura sugerida del repositorio
-
-```
-espe-search-input/
-├── src/
-│   └── espe-search-input.ts
-├── index.html
-├── README.md
-└── docs/
-    ├── 1-default.png
-    ├── 2-theme-custom.png
-    ├── 3-placeholder.png
-    ├── 4-suggestions.png
-    └── 5-result.png
+3. Asignar datos a la propiedad carrera
+```ts
+const card = document.querySelector('career-card');
+card.carrera = {
+  nombre: 'Ingeniería en Software',
+  facultad: 'Facultad de Ingeniería',
+  descripcion: 'Formación en desarrollo de software.',
+  imagen: 'https://via.placeholder.com/300x150?text=Software',
+};
 ```
 
----
+## 🔗 Integración con career-selector
+El componente <career-card> está diseñado para actualizarse cuando se seleccione una carrera desde <career-selector>.
 
-## ✅ Recomendaciones
 
-- Integra con el [ESPE UIKit](https://github.com/tu-url-espe-uikit) si aplica.
-- Valida atributos como `theme` para asegurar que sea un color HEX válido.
-- Usa `@property()` para exponer los atributos configurables.
+```html
+<career-selector></career-selector>
+<career-card id="card" cedula-ultimo-digito="7"></career-card>
+
+<script>
+  const card = document.getElementById('card');
+  document.addEventListener('career-selected', (e) => {
+    card.carrera = e.detail;
+  });
+</script>
+```
