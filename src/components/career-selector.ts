@@ -32,7 +32,7 @@ export class CareerSelector extends LitElement {
 
   async loadCarreras() {
     try {
-      const res = await fetch('/src/data/carreras.json');
+      const res = await fetch('/carreras.json');
       if (!res.ok) throw new Error('No se pudo cargar el archivo JSON');
       const data = await res.json();
       this.carreras = data;
