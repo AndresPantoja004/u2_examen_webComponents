@@ -1,32 +1,26 @@
 [
   {
-    "nombre": "Ingeniería en ITIN",
-    "facultad": "Facultad de Ingeniería",
-    "descripcion": "Formación en desarrollo de software, sistemas, aquitectura tecnologica y tecnologías web.",
-    "imagen": "https://via.placeholder.com/300x150?text=Software"
-  },
-  {
     "nombre": "Ingeniería en Software",
     "facultad": "Facultad de Ingeniería",
     "descripcion": "Formación en desarrollo de software, sistemas y tecnologías web.",
-    "imagen": "https://via.placeholder.com/300x150?text=Software"
+    "imagen": "https://tse1.mm.bing.net/th/id/OIP.kuiksXy7m_k4GBqig7YLrwHaD8?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
   },
   {
     "nombre": "Ingeniería Mecatrónica",
     "facultad": "Facultad de Ingeniería Mecánica",
     "descripcion": "Integración de sistemas mecánicos, eléctricos y de control.",
-    "imagen": "https://via.placeholder.com/300x150?text=Mecatrónica"
+    "imagen": "https://www.uag.mx/contenido/S3K29mU7rt/que-es-la-ingenieria-mecatronica_QkL.jpg"
   },
   {
     "nombre": "Biotecnología",
     "facultad": "Facultad de Ciencias",
     "descripcion": "Aplicación de tecnología en procesos biológicos.",
-    "imagen": "https://via.placeholder.com/300x150?text=Biotecnología"
+    "imagen": "https://www.uax.com/var/site/storage/images/6/6/1/0/90166-1-esl-ES/en-que-consiste-carrera-biotecnologia-interior.jpg"
   },
   {
     "nombre": "Ingeniería Petroquímica",
     "facultad": "Facultad de Energía",
     "descripcion": "Procesamiento y análisis de productos petroquímicos.",
-    "imagen": "https://via.placeholder.com/300x150?text=Petroquímica"
+    "imagen": "https://micarrerauniversitaria.com/wp-content/uploads/2018/02/ingenieria-petroquimica-2.jpg"
   }
 ]

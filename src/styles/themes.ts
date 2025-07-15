@@ -6,7 +6,7 @@ export const themes: Record<string, { border: string; header: string; background
   },
   verde: {
     border: '#006B53',
-    header: '#009E77',
+    header: '#009E76',
     background: '#E5F8F0',
   },
   rojo: {

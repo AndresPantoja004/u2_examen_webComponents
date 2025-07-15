@@ -33,12 +33,12 @@ export class CareerCard extends LitElement {
       background: red;
       padding:7px;
       color: white;
-      border-radius:17px;
+      border-radius:7px;
     }
   `;
 
   render() {
-    if (!this.carrera) return html`<p class="Message-error">Seleccione una carrera</p>`;
+    if (!this.carrera) return html`<p class="Message-error"><- Seleccione una carrera</p>`;
 
     const theme = getThemeByCedulaLastDigit(this.cedulaUltimoDigito);
 
