@@ -1,82 +1,123 @@
-# `<career-card>` Web Component
+# 🎓 ESPE Carreras - Web Components con Lit
 
-El componente `<career-card>` es un Web Component desarrollado con [LitElement](https://lit.dev/) que muestra información detallada sobre una carrera universitaria (nombre, facultad, descripción e imagen). Está diseñado para integrarse con otros componentes, como `<career-selector>`, y actualiza dinámicamente su contenido según la selección del usuario.
-
----
-
-## 🧩 Funcionalidad
-
-- Muestra una tarjeta con los datos de una carrera.
-- Aplica un **tema visual** personalizado según el **último dígito de la cédula** proporcionado.
-- Puede integrarse fácilmente con el componente `<career-selector>` que emite el evento `career-selected`.
+Este proyecto es una aplicación web interactiva que utiliza **Web Components con LitElement** para mostrar información de las carreras de la Universidad de las Fuerzas Armadas **ESPE**. El objetivo es demostrar el uso de arquitectura basada en componentes, eventos personalizados y estilos dinámicos según reglas definidas (en este caso, el último dígito de una cédula).
 
 ---
 
-## 📦 Propiedades
+## 📦 Componentes incluidos
 
-| Propiedad               | Tipo    | Descripción                                                                 |
-|------------------------|---------|-----------------------------------------------------------------------------|
-| `carrera`              | `Object`| Objeto que contiene los datos de la carrera a mostrar.                     |
-| `cedula-ultimo-digito` | `Number`| Último dígito de la cédula. Se usa para determinar el tema visual aplicado.|
+### 🧩 `<career-selector>`
+Permite al usuario seleccionar una carrera de una lista obtenida dinámicamente desde un archivo `carreras.json`.
 
----
+- Despacha un evento personalizado `career-selected` con los datos completos de la carrera seleccionada.
+- Estilizado con un diseño limpio y responsivo.
 
-## 🎨 Temas por cédula
+### 🎓 `<career-card>`
+Muestra una tarjeta informativa de una carrera seleccionada.
 
-El tema de la tarjeta varía automáticamente según el último dígito de cédula:
-
-| Dígito | Tema   | Descripción                      |
-|--------|--------|----------------------------------|
-| 0–1    | Azul   | Colores institucionales          |
-| 2–3    | Verde  | Naturaleza, agronomía            |
-| 4–5    | Rojo   | Energía, mecatrónica             |
-| 6–7    | Gris   | Tecnología, software             |
-| 8–9    | Naranja| Innovación, emprendimiento       |
+- Muestra nombre, facultad, descripción e imagen de la carrera.
+- Aplica un **tema visual** (bordes, fondo) basado en el último dígito de la cédula del usuario.
+- Escucha el evento `career-selected` para actualizarse dinámicamente.
 
 ---
 
-## 🚀 Uso
+## 📁 Estructura del proyecto
 
-### 1. Importar el componente
-
-```ts
-import './components/career-card.ts';
-
-O en HTML directamente (si usas Vite o Webpack con ES Modules):
+```
+/src
+├── /components
+│   ├── career-card.ts
+│   └── career-selector.ts
+├── /styles
+│   └── themes.ts
+├── /data
+│   └── carreras.json
+/docs
+├── cedula3.png
+├── cedula6.png
+index.html
 ```
 
-```html
-<script type="module" src="/src/components/career-card.ts"></script>
+---
+
+## 🚀 Instalación y ejecución local
+
+1. **Clona el repositorio**
+
+```bash
+git clone https://github.com/tu-usuario/espe-carreras.git
+cd espe-carreras
 ```
 
-## 2. Incluir en HTML
-```html
-<career-card cedula-ultimo-digito="3"></career-card>
+2. **Instala dependencias**
+
+```bash
+npm install
 ```
 
-3. Asignar datos a la propiedad carrera
-```ts
-const card = document.querySelector('career-card');
-card.carrera = {
-  nombre: 'Ingeniería en Software',
-  facultad: 'Facultad de Ingeniería',
-  descripcion: 'Formación en desarrollo de software.',
-  imagen: 'https://via.placeholder.com/300x150?text=Software',
-};
+3. **Inicia el servidor de desarrollo**
+
+```bash
+npm run dev
 ```
 
-## 🔗 Integración con career-selector
-El componente <career-card> está diseñado para actualizarse cuando se seleccione una carrera desde <career-selector>.
+4. Abre tu navegador en `http://localhost:5173` (o el puerto que te indique Vite).
 
+---
 
-```html
-<career-selector></career-selector>
-<career-card id="card" cedula-ultimo-digito="7"></career-card>
+## 🖼️ Vista previa del proyecto
 
-<script>
-  const card = document.getElementById('card');
-  document.addEventListener('career-selected', (e) => {
-    card.carrera = e.detail;
-  });
-</script>
-```
+### 🎨 Tema aplicado con cédula terminada en **3** (Verde)
+
+![Cédula 3 - Tema Verde](/docs/preview-num-3.png)
+
+### ⚙️ Tema aplicado con cédula terminada en **6** (Gris)
+
+![Cédula 6 - Tema Gris](/docs/preview-num-6.png)
+
+---
+
+## ✨ Cómo funciona
+
+1. El componente `<career-selector>` carga dinámicamente las carreras desde un JSON (`carreras.json`).
+2. Al hacer clic en una carrera, emite el evento `career-selected`.
+3. El componente `<career-card>` escucha ese evento y muestra la información de la carrera.
+4. Según el valor del atributo `cedula-ultimo-digito`, cambia el tema visual de la tarjeta (`azul`, `verde`, `rojo`, `gris` o `naranja`).
+
+---
+
+## 📌 Tecnologías utilizadas
+
+- [LitElement](https://lit.dev/)
+- [Vite](https://vitejs.dev/)
+- HTML, CSS y TypeScript
+- Web Components
+
+---
+
+## 📚 Recomendado para
+
+- Estudiantes de desarrollo web moderno.
+- Demostraciones de arquitectura basada en componentes.
+- Proyectos académicos con enfoque modular.
+
+---
+
+## 🧪 Evaluación (Examen Unidad 2)
+
+Este proyecto forma parte del examen de la Unidad 2, demostrando conocimientos en:
+
+- LitElement y arquitectura de componentes.
+- Eventos personalizados.
+- Estilización dinámica basada en lógica personalizada.
+- Buenas prácticas de organización y separación de código.
+
+---
+
+## 🧩 Licencia
+
+Este proyecto se desarrolla con fines educativos y puede ser reutilizado para prácticas académicas, siempre que se mantenga la referencia al autor original.
+
+---
+
+**Desarrollado por:** [Andres Pantoja]
